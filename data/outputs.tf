@@ -13,3 +13,7 @@ output "elasticache_subnet_group" {
 output "private_subnets" {
     value = data.aws_subnets.private
 }
+
+output "lb_public_listener" {
+    value =  data.aws_alb_listener.lb_public_listener
+}
