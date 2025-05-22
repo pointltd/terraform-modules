@@ -19,15 +19,15 @@ data "aws_iam_role" "ecs_task_execution_role" {
 }
 
 data "aws_vpc" "main" {
-  id = var.meta.environment == "prod" ? data.terraform_remote_state.global.outputs.vpc_prod_id : data.terraform_remote_state.global.outputs.vpc_test_id
+  id = var.meta.environment == "prod" ? data.terraform_remote_state.global.outputs.vpc_id_prod : data.terraform_remote_state.global.outputs.vpc_id_test
 }
 
-data "aws_security_group" "alb_public_security_group" {
-  id = var.meta == "prod" ? data.terraform_remote_state.global.outputs.alb_security_group_id_prod : data.terraform_remote_state.global.outputs.alb_security_group_id_test
+data "aws_security_group" "lb_public_security_group" {
+  id = var.meta == "prod" ? data.terraform_remote_state.global.outputs.lb_security_group_id_prod : data.terraform_remote_state.global.outputs.lb_security_group_id_test
 }
 
-data "aws_alb_listener" "alb_public_listener" {
-  arn = var.meta == "prod" ? data.terraform_remote_state.global.outputs.alb_public_listener_arn_prod : data.terraform_remote_state.global.outputs.alb_public_listener_arn_test
+data "aws_alb_listener" "lb_public_listener_arn" {
+  arn = var.meta == "prod" ? data.terraform_remote_state.global.outputs.lb_public_listener_arn_prod : data.terraform_remote_state.global.outputs.lb_public_listener_arn_test
 }
 
 data "aws_subnets" "private" {
