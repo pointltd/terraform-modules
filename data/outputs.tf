@@ -21,3 +21,11 @@ output "private_subnets" {
 output "lb_public_listener" {
     value =  data.aws_alb_listener.lb_public_listener
 }
+
+output "ecs_task_role" {
+    value = data.aws_iam_role.ecs_task_role
+}
+
+output "ecs_task_execution_role" {
+    value = data.aws_iam_role.ecs_task_execution_role
+}
