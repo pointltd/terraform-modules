@@ -17,7 +17,7 @@ data "aws_security_group" "redis_security_group" {
 data "aws_subnets" "private" {
   filter {
     name   = "vpc-id"
-      values = [data.aws_vpc.main.id]
+    values = [data.aws_vpc.main.id]
   }
 
   tags = {
@@ -26,5 +26,5 @@ data "aws_subnets" "private" {
 }
 
 data "aws_elasticache_subnet_group" "elasticache_subnet_group" {
-  name =  "prod" ? data.terraform_remote_state.global.outputs.elasticache_subnet_group_name_prod : data.terraform_remote_state.global.outputs.elasticache_subnet_group_name_test
+  name = var.meta == "prod" ? data.terraform_remote_state.global.outputs.elasticache_subnet_group_name_prod : data.terraform_remote_state.global.outputs.elasticache_subnet_group_name_test
 }
