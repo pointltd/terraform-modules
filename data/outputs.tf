@@ -1,3 +1,7 @@
+output "vpc" {
+    value = data.aws_vpc.main
+}
+
 output "ecs_security_group" {
     value = data.aws_security_group.ecs_security_group
 }
