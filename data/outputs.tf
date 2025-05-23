@@ -41,3 +41,7 @@ output "ecs_task_execution_role" {
 output "main_zone" {
     value = data.aws_route53_zone.main
 }
+
+output "partha_rds_cluster" {
+    value = data.aws_rds_cluster.partha
+}
