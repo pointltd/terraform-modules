@@ -5,7 +5,7 @@ locals {
     for task_name, task in var.tasks : task_name => jsonencode([
       for container in task.containers : {
         name      = container.name
-        image     = "${var.aws_account_id}.dkr.ecr.${var.region}.amazonaws.com/${var.meta.name}/${task_name}:${container.image_tag}"
+        image     = "${var.aws_account_id}.dkr.ecr.${var.region}.amazonaws.com/${var.meta.name}/${container.name}:${container.image_tag}"
         essential = container.essential
         portMappings = [
           for port in container.ports : {
