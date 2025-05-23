@@ -45,3 +45,7 @@ output "main_zone" {
 output "partha_rds_cluster" {
     value = data.aws_rds_cluster.partha
 }
+
+output "partha_rds_db_password_secret" {
+    value = data.aws_secretsmanager_secret_version.partha_db_secret
+}
