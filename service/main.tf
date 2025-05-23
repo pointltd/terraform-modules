@@ -20,7 +20,7 @@ resource "aws_ecs_service" "main" {
 
     content {
       target_group_arn = aws_alb_target_group.main["${each.key}-${load_balancer.key}-${var.meta.environment}"].arn
-      container_name   = load_balancer.value["container_name"]
+      container_name   = load_balancer.key
       container_port   = load_balancer.value["port"]
     }
   }
