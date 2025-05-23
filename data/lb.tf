@@ -3,5 +3,5 @@ data "aws_alb_listener" "lb_public_listener" {
 }
 
 data "aws_alb" "lb_public" {
-  id = var.meta == "prod" ?  data.terraform_remote_state.global.outputs.lb_public_id_prod : data.terraform_remote_state.global.outputs.lb_public_id_test
+  arn = var.meta == "prod" ?  data.terraform_remote_state.global.outputs.lb_public_arn_prod : data.terraform_remote_state.global.outputs.lb_public_arn_test
 }
