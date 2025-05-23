@@ -29,6 +29,7 @@ variable "tasks" {
       ports = list(number)
       # environment_files  = list(string)
       environment = map(string)
+      essential   = bool
       # secrets            = map(string)
       # mount_points       = map(string)
     }))

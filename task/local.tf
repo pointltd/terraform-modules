@@ -6,7 +6,7 @@ locals {
       for container in task.containers : {
         name      = container.name
         image     = "${var.aws_account_id}.dkr.ecr.${var.region}.amazonaws.com/${var.meta.name}/${task_name}:${container.image_tag}"
-        essential = true
+        essential = container.essential
         portMappings = [
           for port in container.ports : {
             containerPort = port
