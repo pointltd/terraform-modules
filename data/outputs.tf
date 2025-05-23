@@ -37,3 +37,7 @@ output "ecs_task_role" {
 output "ecs_task_execution_role" {
     value = data.aws_iam_role.ecs_task_execution_role
 }
+
+output "main_zone" {
+    value = data.aws_route53_zone.main
+}
