@@ -26,6 +26,10 @@ output "lb_public_listener" {
     value =  data.aws_alb_listener.lb_public_listener
 }
 
+output "lb_public" {
+    value = data.aws_alb.alb_public
+}
+
 output "ecs_task_role" {
     value = data.aws_iam_role.ecs_task_role
 }
