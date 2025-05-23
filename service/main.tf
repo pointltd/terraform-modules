@@ -19,7 +19,7 @@ resource "aws_ecs_service" "main" {
     for_each = each.value["listeners"]
 
     content {
-      target_group_arn = aws_alb_target_group.main[load_balancer.key].arn
+      target_group_arn = aws_alb_target_group.main["${each.key}-${load_balancer.key}-${var.meta.environment}"].arn
       container_name   = load_balancer.value["container_name"]
       container_port   = load_balancer.value["port"]
     }
