@@ -3,5 +3,5 @@ data "aws_rds_cluster" "partha" {
 }
 
 data "aws_secretsmanager_secret_version" "partha_db_secret" {
-  secret_id = data.aws_rds_cluster.partha.db_password_secret_arn
+  secret_id = data.aws_rds_cluster.partha.master_user_secret[0].secret_arn
 }
