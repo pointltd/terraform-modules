@@ -27,7 +27,7 @@ output "lb_public_listener" {
 }
 
 output "lb_public" {
-    value = data.aws_alb.alb_public
+    value = data.aws_alb.lb_public
 }
 
 output "ecs_task_role" {
