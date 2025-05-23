@@ -15,15 +15,15 @@ resource "aws_ecs_service" "main" {
     security_groups = each.value.security_groups
   }
 
-  # dynamic "load_balancer" {
-  #   for_each = each.value["listeners"]
-  #
-  #   content {
-  #     target_group_arn = aws_alb_target_group.main[load_balancer.key].arn
-  #     container_name   = load_balancer.value["container_name"]
-  #     container_port   = load_balancer.value["port"]
-  #   }
-  # }
+  dynamic "load_balancer" {
+    for_each = each.value["listeners"]
+
+    content {
+      target_group_arn = aws_alb_target_group.main[load_balancer.key].arn
+      container_name   = load_balancer.value["container_name"]
+      container_port   = load_balancer.value["port"]
+    }
+  }
 
   tags = {
     Name = "${var.meta.environment}--${each.key}"
