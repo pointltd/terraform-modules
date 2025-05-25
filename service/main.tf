@@ -26,6 +26,6 @@ resource "aws_ecs_service" "main" {
   }
 
   tags = {
-    Name = "${var.meta.environment}--${each.key}"
+    Name = each.value.name
   }
 }
