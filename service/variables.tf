@@ -24,8 +24,6 @@ variable "services" {
     task_definition_arn = string
     subnets             = list(string)
     security_groups     = list(string)
-    container_name      = string
-    container_port      = number
     listeners = map(object({
       port          = number
       health_check  = string
