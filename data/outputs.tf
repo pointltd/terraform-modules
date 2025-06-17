@@ -54,6 +54,10 @@ output "main_zone" {
     value = data.aws_route53_zone.main
 }
 
+output "main_zone_private" {
+    value = data.aws_route53_zone.main_private
+}
+
 output "partha_rds_cluster" {
     value = data.aws_rds_cluster.partha
 }
